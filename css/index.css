@@ -1,0 +1,107 @@
+:root {
+  --bg: #ffffff;
+  --primary: #0f766e;          /* verde energético */
+  --primary-soft: #bac5c2;
+  --text: #0f172a;
+  --muted: #475569;
+  --white: #a5ae9c;         /* blanco cálido- */
+  --radius: 12px;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+/* =========================
+   ANIMACIONES ENERGÉTICAS
+========================= */
+@keyframes energyPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(15, 118, 110, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(15, 118, 110, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(15, 118, 110, 0.35);
+  }
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.footer {
+  background: #7a7c85;
+  color: #e5e7eb;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.footer h3,
+.footer h4 {
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+.footer-links a {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: #cbd5f5;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1e293b;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}

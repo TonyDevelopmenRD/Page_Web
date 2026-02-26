@@ -1,0 +1,45 @@
+.extra-info-section {
+  background: var(--white);
+  padding: 4rem 2rem;
+}
+
+.extra-wrapper {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.countries-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 2rem 0;
+}
+
+.country-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.country-item:last-child {
+  border-bottom: none;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.solution-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.solution-card h4 {
+  padding: 1rem;
+  color: var(--primary);
+}
