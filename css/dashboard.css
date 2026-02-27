@@ -1,0 +1,129 @@
+/* ===== GENERAL ===== */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f1f5f9;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 260px;
+  background: #111827;
+  color: white;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.menu-title {
+  font-size: 13px;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-item {
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  background: #1f2937;
+  color: white;
+}
+
+/* ===== MAIN ===== */
+.main-content {
+  flex: 1;
+  padding: 35px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.subtitle {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.top-actions input {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+}
+
+/* ===== CARD CONTENIDO ===== */
+.content-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  min-height: 60vh;
+}
+
+/* ===== GRID ===== */
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* ===== BOTONES ===== */
+.btn-primary {
+  background: linear-gradient(45deg, #00b894, #00cec9);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #374151;
+  color: #d1d5db;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

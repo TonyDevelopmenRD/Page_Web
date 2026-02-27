@@ -47,3 +47,16 @@
   margin-bottom: 5px;
   border-radius: 2px;
 }
+
+
+.dashboard-link {
+  background-color: #00b894;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white !important;
+  transition: 0.3s;
+}
+
+.dashboard-link:hover {
+  background-color: #019875;
+}

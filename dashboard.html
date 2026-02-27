@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Conciencia Energética</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div>
+      <h2 class="logo">⚡ Panel</h2>
+
+      <button id="uploadBtn" class="btn-primary">
+        + Subir Archivo
+      </button>
+
+      <input type="file" id="fileInput" accept="image/*,video/*" hidden>
+
+      <nav class="menu">
+        <p class="menu-title">Carpetas</p>
+
+        <button class="menu-item" onclick="filterFolder('tareas')">
+          📂 Tareas
+        </button>
+
+        <button class="menu-item" onclick="filterFolder('proyectos')">
+          📂 Proyectos
+        </button>
+
+        <button class="menu-item" onclick="filterFolder('otros')">
+          📂 Otros
+        </button>
+      </nav>
+    </div>
+
+    <button onclick="logout()" class="logout-btn">
+      Cerrar sesión
+    </button>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- HEADER SUPERIOR -->
+    <header class="header">
+
+      <div class="header-left">
+        <h1>Mis Archivos</h1>
+        <p class="subtitle">
+          👤 Bienvenido, <span id="userName"></span>
+        </p>
+      </div>
+
+      <div class="top-actions">
+        <input type="text" id="searchInput" placeholder="Buscar archivo...">
+        <button id="toggleTheme">🌙</button>
+      </div>
+
+    </header>
+
+    <!-- CONTENIDO EN CARD -->
+    <section class="content-card">
+      <div id="fileGrid" class="file-grid"></div>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
