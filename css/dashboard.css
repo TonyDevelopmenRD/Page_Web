@@ -58,6 +58,7 @@ body {
 .main-content {
   flex: 1;
   padding: 35px;
+  overflow-y: auto;
 }
 
 /* ===== HEADER ===== */
@@ -98,11 +99,11 @@ body {
 /* ===== GRID ===== */
 .file-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
 }
 
-/* ===== BOTONES ===== */
+/* ===== BOTONES GENERALES ===== */
 .btn-primary {
   background: linear-gradient(45deg, #00b894, #00cec9);
   border: none;
@@ -112,6 +113,7 @@ body {
   cursor: pointer;
   margin-bottom: 20px;
   transition: 0.3s;
+  width: 100%;
 }
 
 .btn-primary:hover {
@@ -126,4 +128,115 @@ body {
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* ===== FILE CARDS ===== */
+.file-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.file-card:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* ===== THUMBNAIL ===== */
+.file-thumb {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e2e8f0;
+}
+
+.file-thumb img,
+.file-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== NOMBRE ===== */
+.file-name {
+  font-size: 12px;
+  color: #334155;
+  text-align: center;
+  word-break: break-all;
+  margin: 0;
+  width: 100%;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.file-desc {
+  width: 100%;
+  box-sizing: border-box;
+  height: 60px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  color: #475569;
+  resize: none;
+  outline: none;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.file-desc:focus {
+  border-color: #00b894;
+}
+
+.file-desc::placeholder {
+  color: #94a3b8;
+}
+
+/* ===== ACCIONES ===== */
+.file-actions {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.btn-download {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  font-size: 11px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #3b82f6;
+  border: 1px solid #bfdbfe;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btn-download:hover {
+  background: #dbeafe;
+}
+
+.btn-delete {
+  flex: 1;
+  font-size: 11px;
+  padding: 6px 4px;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  cursor: pointer;
+  background: white;
+  color: #ef4444;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  background: #fef2f2;
+  border-color: #ef4444;
 }

@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const fileData = {
         name: file.name,
         type: file.type,
-        data: e.target.result
+        data: e.target.result,
+        description: ""
       };
 
       saveFile(fileData);
@@ -50,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("files", JSON.stringify(files));
   }
 
+  function updateDescription(name, description) {
+    let files = JSON.parse(localStorage.getItem("files")) || [];
+    files = files.map(f => f.name === name ? { ...f, description } : f);
+    localStorage.setItem("files", JSON.stringify(files));
+  }
+
   function loadFiles() {
     let files = JSON.parse(localStorage.getItem("files")) || [];
     files.forEach(renderFile);
@@ -59,19 +66,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     card.classList.add("file-card");
 
-    if (file.type.startsWith("image")) {
-      card.innerHTML = `
-        <img src="${file.data}">
-        <p>${file.name}</p>
-        <button onclick="deleteFile('${file.name}')">Eliminar</button>
-      `;
-    } else if (file.type.startsWith("video")) {
-      card.innerHTML = `
-        <video src="${file.data}" controls></video>
-        <p>${file.name}</p>
-        <button onclick="deleteFile('${file.name}')">Eliminar</button>
-      `;
-    }
+    const mediaHTML = file.type.startsWith("image")
+      ? `<img src="${file.data}" alt="${file.name}">`
+      : `<video src="${file.data}" controls></video>`;
+
+    card.innerHTML = `
+      <div class="file-thumb">
+        ${mediaHTML}
+      </div>
+      <p class="file-name">${file.name}</p>
+
+      <textarea
+        class="file-desc"
+        placeholder="Agregar descripción..."
+        data-name="${file.name}"
+      >${file.description || ""}</textarea>
+
+      <div class="file-actions">
+        <a class="btn-download" href="${file.data}" download="${file.name}">
+          ⬇ Descargar
+        </a>
+        <button class="btn-delete" onclick="deleteFile('${file.name}')">
+          🗑 Eliminar
+        </button>
+      </div>
+    `;
+
+    // Guardar descripción al escribir
+    const textarea = card.querySelector(".file-desc");
+    textarea.addEventListener("input", () => {
+      updateDescription(file.name, textarea.value);
+    });
 
     fileGrid.appendChild(card);
   }
@@ -90,10 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
   searchInput.addEventListener("input", () => {
     const value = searchInput.value.toLowerCase();
     const cards = document.querySelectorAll(".file-card");
-
     cards.forEach(card => {
       const text = card.textContent.toLowerCase();
-      card.style.display = text.includes(value) ? "block" : "none";
+      card.style.display = text.includes(value) ? "flex" : "none";
     });
   });
 
